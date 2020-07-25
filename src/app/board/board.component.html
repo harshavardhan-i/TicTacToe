@@ -1,0 +1,14 @@
+<div>
+    <div style="text-align: center;" class="status">{{ statusMessage }}</div>
+    <div class="board" *ngFor="let row of [0, 1, 2]">
+        <app-cell *ngFor="let col of [0,1,2]" 
+            [row]="row" 
+            [col]="col" 
+            [piece]="board[row][col]"
+            (click)="move(row, col)">
+        </app-cell>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <button *ngIf="gameOver" (click)="newGame()">New Game</button>
+    </div>
+</div>
