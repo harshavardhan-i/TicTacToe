@@ -29,7 +29,7 @@ export class BoardComponent implements OnInit {
     }
     this.currentPlayer = CellEnum.x;
     this.isGameOver = false;
-    this.statusMessage = 'Player ' + this.currentPlayer + 's turn';
+    this.statusMessage = 'Player ' + this.currentPlayer + '\'s turn';
   }
 
   get gameOver(): boolean {
