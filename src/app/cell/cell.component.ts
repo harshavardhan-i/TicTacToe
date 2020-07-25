@@ -8,7 +8,7 @@ import { CellEnum } from './CellEnum';
 })
 export class CellComponent implements OnInit {
 
-  @Input() public piece: CellEnum = CellEnum.EMPTY;
+  @Input() public piece;
   @Input() public row: number;
   @Input() public col: number;
 

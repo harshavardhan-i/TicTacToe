@@ -1,3 +1,4 @@
-<div class="cell" [ngClass]="{'v1' : col !== 2, 'h1': row !== 2}">
-    {{piece}}
-</div>
+
+<button class="cell" nbButton hero status="danger" *ngIf="piece != 'X' && piece != 'O'" >{{piece}}</button>
+<button class="cell" nbButton hero status="success" *ngIf="piece == 'X'">{{piece}}</button>
+<button class="cell" nbButton hero status="warning" *ngIf="piece == 'O'">{{piece}}</button>

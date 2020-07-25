@@ -16,7 +16,10 @@ export class BoardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.board = [];
+    console.log(this.board)
     this.newGame();
+    console.log(this.board);
   }
 
   newGame(){
@@ -29,7 +32,7 @@ export class BoardComponent implements OnInit {
     }
     this.currentPlayer = CellEnum.x;
     this.isGameOver = false;
-    this.statusMessage = 'Player ' + this.currentPlayer + '\'s turn';
+    this.statusMessage = 'Player ' + this.currentPlayer + '\'s turn!';
   }
 
   get gameOver(): boolean {
@@ -37,6 +40,7 @@ export class BoardComponent implements OnInit {
   }
 
   move( row : number, col: number ): void {
+    console.log(this.board);
     if (!this.isGameOver && this.board[row][col] === CellEnum.EMPTY){
       this.board[row][col] = this.currentPlayer;
       if( this.isDraw()){
@@ -47,7 +51,7 @@ export class BoardComponent implements OnInit {
         this.isGameOver = true;
       } else {
         this.currentPlayer = this.currentPlayer === CellEnum.x ? CellEnum.o : CellEnum.x;
-        this.statusMessage = 'Player ' + this.currentPlayer + 's turn';
+        this.statusMessage = 'Player ' + this.currentPlayer + '\'s turn!';
       }
     }
   }
@@ -91,7 +95,7 @@ export class BoardComponent implements OnInit {
 
     if(
       this.board[0][2] === this.board[1][1] &&
-      this.board[0][2] === this.board[2][2] &&
+      this.board[0][2] === this.board[2][0] &&
       this.board[0][2] !== CellEnum.EMPTY
     ){
       return true;
